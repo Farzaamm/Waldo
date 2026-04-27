@@ -3,6 +3,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 
+const gameRoutes = require('./routes/gameRoutes');
+
 dotenv.config();
 
 const app = express();
@@ -19,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Game routes
-app.use('/api', require('./routes/gameRoutes'));
+app.use('/api/games', gameRoutes);
 
 // Start the server
 app.listen(PORT, () => {
