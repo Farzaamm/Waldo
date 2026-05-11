@@ -11,6 +11,9 @@ const Game = () => {
     const y = Math.round((yOnScreen / rect.height) * 100) // Convert to percentage
     // console.log(`Coordinates: (${x}, ${y})`)
 
+    /* Math.round() is used to simplify the coordinates and make it easier to set the coordinates of Waldo in the database, but it is not precise.
+    It is enough for the sake of this project, but a more precise method can be implemented in the future if needed. */
+    
     const topLeftX = 61 
     const topLeftY = 35 
     const bottomRightX = 62 

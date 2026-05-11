@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import Game from './components/Game'
-// import './App.css'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Where's Waldo?</h1>
+    <div className='app'>
+      <Navbar />
       <Game />
+      <Footer />
     </div>
   )
   
