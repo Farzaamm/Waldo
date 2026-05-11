@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import Game from './components/Game'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-
+import {Outlet} from 'react-router-dom'
 function App() {
   return (
-    <div className='app'>
+    <div>
       <Navbar />
-      <Game />
+      <Outlet />
       <Footer />
     </div>
   )

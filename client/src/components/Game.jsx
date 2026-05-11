@@ -28,7 +28,7 @@ const Game = () => {
 
   return (
     <>
-      <img src="Beach scene.jpg" onClick={waldoFinder} alt="" />
+      <img className='w-full' src="Beach scene.jpg" onClick={waldoFinder} alt="" />
     </>
   )
 }
