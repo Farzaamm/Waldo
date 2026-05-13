@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useGame } from '../context/GameContext';
 import StartModal from './StartModal';
+import WinModal from './WinModal';     
 
 const Game = () => {
   const { enterGame, exitGame, stopGame } = useGame();
-  const [showModal, setShowModal] = useState(true);
+  const [showStartModal, setShowStartModal] = useState(true);
+  const [showWinModal, setShowWinModal] = useState(false);  
 
-  // Enter game when component mounts
   useEffect(() => {
     enterGame();
-    return () => exitGame(); // Cleanup when leaving game
+    return () => exitGame();
   }, [enterGame, exitGame]);
 
   const waldoFinder = (event) => {
@@ -27,8 +28,7 @@ const Game = () => {
 
     if (x >= topLeftX && x <= bottomRightX && y >= topLeftY && y <= bottomRightY) {
       stopGame();
-      alert(`Congratulations! You found Waldo!`);
-      // TODO: Later send time to backend
+      setShowWinModal(true);        
     } else {
       alert('Try again! Waldo is not at these coordinates.');
     }
@@ -36,17 +36,15 @@ const Game = () => {
 
   return (
     <>
-      <StartModal 
-        isOpen={showModal} 
-        onClose={() => setShowModal(false)} 
-      />
+      <StartModal isOpen={showStartModal} onClose={() => setShowStartModal(false)} />
+      <WinModal isOpen={showWinModal} onClose={() => setShowWinModal(false)} /> 
 
-      <div className={showModal ? 'opacity-50 pointer-events-none' : ''}>
+      <div className={(showStartModal || showWinModal) ? 'opacity-50 pointer-events-none' : ''}>
         <img 
           className='w-full' 
           src="Beach scene.jpg" 
           onClick={waldoFinder} 
-          alt="Where's Waldo" 
+          alt="" 
         />
       </div>
     </>
