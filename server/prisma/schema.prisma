@@ -4,13 +4,15 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
+
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
+
 
 model Character {
   id    Int @id @default(autoincrement()) 
@@ -22,8 +24,8 @@ model Character {
 }
 
 model Score {
-  id          Int @id @default(autoincrement()) 
-  username    String
-  time        Int
-  createdAt   DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  username  String   @db.VarChar(50)
+  time      Int
+  createdAt DateTime @default(now())
 }
