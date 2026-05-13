@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 
 const gameRoutes = require('./routes/gameRoutes');
+const scoresRoutes = require('./routes/scoresRoutes'); 
 
 dotenv.config();
 
@@ -20,10 +21,10 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Waldo API!');
 });
 
-// Game routes
 app.use('/api/games', gameRoutes);
+app.use('/api/scores', scoresRoutes);   
 
-// Start the server
+// Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
