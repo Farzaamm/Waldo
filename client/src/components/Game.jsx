@@ -29,8 +29,6 @@ const Game = () => {
     if (x >= topLeftX && x <= bottomRightX && y >= topLeftY && y <= bottomRightY) {
       stopGame();
       setShowWinModal(true);        
-    } else {
-      alert('Try again! Waldo is not at these coordinates.');
     }
   };
 

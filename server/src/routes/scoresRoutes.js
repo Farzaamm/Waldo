@@ -1,17 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-// POST - Save score
+// POST /api/scores - Save a new score
 router.post('/', async (req, res) => {
   try {
     const { username, time } = req.body;
 
-    if (!username || !time) {
-      return res.status(400).json({ error: "Username and time are required" });
+    if (!username || !username.trim()) {
+      return res.status(400).json({ error: "Username is required" });
+    }
+    if (!time) {
+      return res.status(400).json({ error: "Time is required" });
     }
 
     const score = await prisma.score.create({
@@ -28,14 +31,13 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET - Leaderboard
+// GET /api/scores - Get the leaderboard
 router.get('/', async (req, res) => {
   try {
     const scores = await prisma.score.findMany({
       orderBy: { time: 'asc' },
       take: 50,
     });
-
     res.json(scores);
   } catch (error) {
     console.error(error);
