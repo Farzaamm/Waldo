@@ -32,19 +32,19 @@ const Navbar = () => {
       )}
 
       <div className="flex gap-8 text-lg">
-        <NavLink 
+        {/* <NavLink 
           to="/game"
           className={({ isActive }) => 
             isActive ? "text-yellow-400 underline decoration-4 underline-offset-8" : "hover:text-yellow-400 transition-colors"
           }
         >
           Play Game
-        </NavLink>
+        </NavLink> */}
 
         <NavLink 
           to="/leaderboard"
           className={({ isActive }) => 
-            isActive ? "text-yellow-400 underline decoration-4 underline-offset-8" : "hover:text-yellow-400 transition-colors"
+            isActive ? "text-yellow-400" : "hover:text-yellow-400 transition-colors"
           }
         >
           Leaderboard
