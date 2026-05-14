@@ -16,7 +16,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/scores');
+        const res = await axios.get('http://localhost:5000/api/scores');
         setScores(res.data);
       } catch (error) {
         console.error("Failed to fetch leaderboard:", error);
