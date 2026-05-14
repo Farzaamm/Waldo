@@ -23,7 +23,7 @@ const WinModal = ({ isOpen, onClose }) => {
     setIsSubmitting(true);
 
     try {
-      await axios.post('http://localhost:3000/api/scores', {
+      await axios.post('http://localhost:5000/api/scores', {
         username: playerName.trim(),
         time: finalTime,
       });
