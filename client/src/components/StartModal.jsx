@@ -11,7 +11,7 @@ const StartModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-yellow-100/80 backdrop-blur flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-yellow-100/60 backdrop-blur flex items-center justify-center z-50">
       <div className="bg-gray-900 border-4 border-yellow-400 rounded-3xl p-12 text-center max-w-md w-full">
         <h2 className="text-6xl font-black text-yellow-300 mb-6">READY?</h2>
         <p className="text-2xl mb-10 text-gray-300">
