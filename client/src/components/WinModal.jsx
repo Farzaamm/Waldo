@@ -28,17 +28,23 @@ const WinModal = ({ isOpen, onClose }) => {
         time: finalTime,
       });
 
-      alert(`✅ Score saved! Your time: ${formatTime(finalTime)}`);
+      // alert(`✅ Score saved! Your time: ${formatTime(finalTime)}`);
       resetGame();
       onClose();
       window.location.href = '/leaderboard';
     } catch (err) {
       console.error(err);
-      alert("Failed to save score. Make sure server is running.");
+      // alert("Failed to save score. Make sure server is running.");
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !isSubmitting && playerName.trim()) {
+      handleSubmit();
+    }
+  }
 
   if (!isOpen || !finalTime) return null;
 
@@ -53,6 +59,7 @@ const WinModal = ({ isOpen, onClose }) => {
           placeholder="Enter your name"
           value={playerName}
           onChange={(e) => setPlayerName(e.target.value)}
+          onKeyDown={handleKeyDown}
           className="w-full bg-gray-800 border-2 border-gray-700 focus:border-yellow-400 text-white text-2xl p-5 rounded-2xl mb-8 outline-none"
           maxLength={20}
         />

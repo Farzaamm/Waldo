@@ -17,10 +17,10 @@ datasource db {
 model Character {
   id    Int @id @default(autoincrement()) 
   name  String @unique
-  xMin  Int
-  xMax  Int
-  yMin  Int
-  yMax  Int
+  xMin  Float
+  xMax  Float
+  yMin  Float
+  yMax  Float
 }
 
 model Score {

@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 
 const gameRoutes = require('./routes/gameRoutes');
 const scoresRoutes = require('./routes/scoresRoutes'); 
+const charactersRoutes = require('./routes/charactersRoutes');
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/games', gameRoutes);
 app.use('/api/scores', scoresRoutes);   
+app.use('/api/characters', charactersRoutes);
 
 // Start server
 app.listen(PORT, () => {
